@@ -28,9 +28,9 @@ En primer lugar se realiza el analisis de los datos de fuente entregados.
 
 El primer archivo analizado es Objects.xml  
 
-*** Objects.xml ***
-
-:::xml
+***Objects.xml***
+~~~
+::xml
 <row>
 	  <id>1954</id>
 	  <name>491245 - 212 SEXY EDP 30ML 2202005371</name>
@@ -38,3 +38,4 @@ El primer archivo analizado es Objects.xml
 	  <external_reference>491245 - 212 SEXY EDP 30ML 2202005371</external_reference>
 	  <metadata>{}</metadata>
 </row>
+~~~
