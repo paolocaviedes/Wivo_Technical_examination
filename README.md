@@ -39,3 +39,10 @@ El primer archivo analizado es Objects.xml
 	  <metadata>{}</metadata>
 </row>
 ```
+
+Como se puede observar en la estructura xml anteriormente descrita, la información relevante a almacenar se estructura de la siguiente manera. 
+
+|   Object   | datatypes  |
+| ---------- | ---------- |
+| id_object  | integer   |
+| name   | varchar(45)   |
