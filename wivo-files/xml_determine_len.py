@@ -41,8 +41,8 @@ for i in range(0, len(objects_identifiers)):
 	if len_objects_metadata>comp_objects_metadata:
 		comp_objects_metadata= len_objects_metadata
 
-print comp_objects_identifiers
-print comp_objects_names 
-print comp_objects_type 
-print comp_objects_external_reference 
-print comp_objects_metadata 
+print "La logitud maxima del campo id es: ", comp_objects_identifiers
+print "La logitud maxima del campo name es: ", comp_objects_names 
+print "La logitud maxima del campo type es: ", comp_objects_type 
+print "La logitud maxima del campo external reference es: ", comp_objects_external_reference 
+print "La logitud maxima del campo metadata es: ", comp_objects_metadata 

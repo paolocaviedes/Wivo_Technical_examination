@@ -46,3 +46,15 @@ Como se puede observar en la estructura xml anteriormente descrita, la informaci
 | ---------- | ---------- |
 | id_object  | integer   |
 | name   | varchar(45)   |
+| type   | varchar(45)   |
+| external_reference   | varchar(45)   |
+| metadata | varchar(45)   |
+
+Para determinar los largos adecuados para los campos, fue necesario programar un script que realice al calculo de los objetos con mayor largo, el cual se encuentra en xml_determine_len.py; Los resultados obtenidos fueron:
+~~~
+La logitud maxima del campo id es:  5
+La logitud maxima del campo name es:  44
+La logitud maxima del campo type es:  11
+La logitud maxima del campo external reference es:  44
+La logitud maxima del campo metadata es:  2
+~~~
