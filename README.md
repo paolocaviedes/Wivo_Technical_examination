@@ -61,13 +61,13 @@ La logitud maxima del campo metadata es:  2
 
 Luego esta tabla es creada en la Base de Datos.
 ```sql
-'objects', 'CREATE TABLE 'objects' (
+'objects', CREATE TABLE 'objects' (
   'id' int(11) NOT NULL,
   'name' varchar(45) NOT NULL,
   'type' varchar(45) NOT NULL,
   'external_reference' varchar(45) NOT NULL,
   ' metadata' varchar(150) NOT NULL,
   PRIMARY KEY ('id')
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8'
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8
 ```
 
