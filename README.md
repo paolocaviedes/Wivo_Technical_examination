@@ -30,7 +30,7 @@ El primer archivo analizado es Objects.xml
 
 ***Objects.xml***
 ~~~
-::xml
+```xml
 <row>
 	  <id>1954</id>
 	  <name>491245 - 212 SEXY EDP 30ML 2202005371</name>
