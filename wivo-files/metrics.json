@@ -1,0 +1,6 @@
+{"name":"sales","unit":"USD","representation":"currency","derived_from":null}
+{"name":"dispersion","unit":"USD","representation":"currency","derived_from":null}
+{"name":"areagoals","unit":"USD","representation":"currency","derived_from":null}
+{"name":"departmentgoals","unit":"USD","representation":"currency","derived_from":null}
+{"name":"accomplishAreaGoals","unit":"%","representation":"percent","derived_from":{"function": "ratio", "parameters": [{"key": "sum", "metric-name": "sales"}, {"key": "sum", "metric-name": "areagoals"}]}}
+{"name":"accomplishDepartmentGoals","unit":"%","representation":"percent","derived_from":{"function": "ratio", "parameters": [{"key": "sum", "metric-name": "sales"}, {"key": "sum", "metric-name": "departmentgoals"}]}}
