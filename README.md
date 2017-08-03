@@ -24,51 +24,17 @@ Observaciones importantes:
 
 ## Desarrollo del Problema ##
 
-En primer lugar se realiza el analisis de los datos de fuente entregados. 
+En primer lugar, se realiza el análisis de los datos de fuente entregados. Para determinar el modelo de datos correspondiente, en este caso se crearon las tablas de acuerdo a la foto entregada en los archivos de este directorio. 
 
-El primer archivo analizado es Objects.xml  
+Posteriormente realicé la separación en módulos para la mejor comprensión del problema en este caso el script principal es main.py, las operaciones a la base de datos se realizan en sql_operations.py, los parsers a los archivos están en parsers.py y algunas utilidades en utils.py
 
-***Objects.xml***
+Para resolver el requerimiento del análisis de archivos por nombre, utilicé la librería re con expresiones regulares, además creé una tabla en la BD para gestionar el histórico de los archivos ya leídos, los cuales se agregan una vez volcado a la BD. 
+Luego para volcar la información a la BD se realiza la validación de cada registro sobre la misma, para evitar que al modificar un archivo, los registros que ya pertenecen a la BD sean agregados. Esta opción para el archivo event.csv se encuentra deshabilitada (comentada) para evitar largos tiempos de lectura a la BD, la puedes descomentar para verificar su funcionamiento, esto es en parsers.py line 99.
 
-```xml
-<row>
-	  <id>1954</id>
-	  <name>491245 - 212 SEXY EDP 30ML 2202005371</name>
-	  <type>products</type>
-	  <external_reference>491245 - 212 SEXY EDP 30ML 2202005371</external_reference>
-	  <metadata>{}</metadata>
-</row>
-```
+Por otro lado, obvie las claves foráneas para agilizar el proceso de volcado, sin embargo estas se pueden reconocer entre las tablas:
 
-Como se puede observar en la estructura xml anteriormente descrita, la información relevante a almacenar se estructura de la siguiente manera. 
+object(name) y events(object_name) 
+Events(metric_name) y metric(name)
 
-|   Object   | datatypes  |
-| ---------- | ---------- |
-| id_object  | integer   |
-| name   | varchar(45)   |
-| type   | varchar(45)   |
-| external_reference   | varchar(45)   |
-| metadata | varchar(45)   |
-
-Para determinar los largos adecuados para los campos, fue necesario programar un script que realice el cálculo de los objetos con mayor largo, el cual se encuentra en xml_determine_len.py; Los resultados obtenidos fueron:
-~~~
-La logitud maxima del campo id es:  5
-La logitud maxima del campo name es:  44
-La logitud maxima del campo type es:  11
-La logitud maxima del campo external reference es:  44
-La logitud maxima del campo metadata es:  2
-~~~
-
-Luego esta tabla es creada en la Base de Datos.
-
-```sql
-'object', CREATE TABLE 'object' (
-  'id' int(11) NOT NULL,
-  'name' varchar(45) NOT NULL,
-  'type' varchar(45) NOT NULL,
-  'external_reference' varchar(45) NOT NULL,
-  ' metadata' varchar(150) NOT NULL,
-  PRIMARY KEY ('id')
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8
-```
-
+metric(derived_from) y function(name)
+Para finalizar, cabe mencionar que las functions podrían ser agregadas a la base de datos como stored procedures, sin embargo, no lo hice para priorizar el proceso de volcado de información.
