@@ -1,5 +1,5 @@
 # Wivo Technical Examination #
-*Monday, 31th July, 2017*
+*Monday, 31th July, 2017*  
 *Produced by Paolo Caviedes Saavedra*
 
 ## Requerimiento ##
@@ -11,16 +11,16 @@ Se adjuntan tres fuentes de datos distintas: events (csv), objects (xml) y metri
 
 ## Descomposición del Problema ##
 
-Para comenzar el problema, en primer lugar se realiza el análisis de lo solicitado y la fuente de datos de cada uno de los archivos para determinar su relación. 
+Para comenzar, se realiza el análisis de lo solicitado y la fuente de datos de cada uno de los archivos para determinar su relación. 
 
-En terminos de lo solicitado, la descomposición del problema se muestra como sigue:  
+En términos de lo solicitado, se identifican los siguientes 3 elementos principales:  
 * Se debe escribir un programa que realice la lectura de los archivos entregados en el directorio.  
-* Estos archivos deben ser leidos y preparados para la inserción en una Base de Datos.  
+* Estos archivos deben ser leídos y preparados para la inserción en una Base de Datos.  
 * El modelo de Base de Datos a utilizar debe ser normalizado para la información a recibir.  
 
 Observaciones importantes:  
-* El programa debe realizar la lectura de los archivos cada vez que se ejecute, sin embargo, los archivos a leer serán los que han sido modificados o los archivos nuevos. 
-* Los archivos a leer pueden tener distintos nombres, sin embargo estos no se modifican en formato y siguen el mismo patrón ejemplo: events-20170731.csv, 123456789-metrics.json
+* El programa debe realizar la lectura del directorio cada vez que se ejecute, sin embargo, los archivos a leer serán los que han sido modificados o los nuevos. 
+* Los archivos a leer pueden tener distintos nombres, sin embargo, estos no se modifican en formato y siguen el mismo patrón ejemplo: events-20170731.csv, 123456789-metrics.json
 
 ## Desarrollo del Problema ##
 
@@ -50,7 +50,7 @@ Como se puede observar en la estructura xml anteriormente descrita, la informaci
 | external_reference   | varchar(45)   |
 | metadata | varchar(45)   |
 
-Para determinar los largos adecuados para los campos, fue necesario programar un script que realice al calculo de los objetos con mayor largo, el cual se encuentra en xml_determine_len.py; Los resultados obtenidos fueron:
+Para determinar los largos adecuados para los campos, fue necesario programar un script que realice el cálculo de los objetos con mayor largo, el cual se encuentra en xml_determine_len.py; Los resultados obtenidos fueron:
 ~~~
 La logitud maxima del campo id es:  5
 La logitud maxima del campo name es:  44
@@ -60,6 +60,7 @@ La logitud maxima del campo metadata es:  2
 ~~~
 
 Luego esta tabla es creada en la Base de Datos.
+
 ```sql
 'object', CREATE TABLE 'object' (
   'id' int(11) NOT NULL,
