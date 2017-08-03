@@ -33,8 +33,8 @@ Luego para volcar la información a la BD se realiza la validación de cada regi
 
 Por otro lado, obvie las claves foráneas para agilizar el proceso de volcado, sin embargo estas se pueden reconocer entre las tablas:
 
-object(name) y events(object_name) 
-Events(metric_name) y metric(name)
+object(name) y events(object_name)  
+Events(metric_name) y metric(name)  
+metric(derived_from) y function(name)  
 
-metric(derived_from) y function(name)
 Para finalizar, cabe mencionar que las functions podrían ser agregadas a la base de datos como stored procedures, sin embargo, no lo hice para priorizar el proceso de volcado de información.
