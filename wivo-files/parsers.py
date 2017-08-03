@@ -20,17 +20,17 @@ def files_parser(files,cursor,cnx):
 		
 		elif file["extension"]==".xml":
 			#xml parser
-			continue
-			# clear()
-			# print "Analizando ",file["filename"],file["extension"],"..."
-			# xmlparser(file,cursor,cnx)
+			# continue
+			clear()
+			print "Analizando ",file["filename"],file["extension"],"..."
+			xmlparser(file,cursor,cnx)
 
 		elif file["extension"]==".csv":
-			continue
+			# continue
 			#csv parser
-			# clear()
-			# print "Analizando ",file["filename"],file["extension"],"..."
-			# csvparser(file,cursor,cnx)
+			clear()
+			print "Analizando ",file["filename"],file["extension"],"..."
+			csvparser(file,cursor,cnx)
 		
 		else: 
 			print "Error - Archivo desconocido"
@@ -96,6 +96,7 @@ def csvparser(file,cursor,cnx):
 				value=lista[3]
 				metric_name=lista[4]
 				
+			#Descomentar e indentar para realizar la comprobacion de registros repetidos. 	
 			# if verify_event({"object_name":object_name,"event":event,"value":value,"metric_name":metric_name},cursor,cnx):
 			add_event({"object_name":object_name,"event":event,"value":value,"metric_name":metric_name},cursor,cnx)
 			# else: 
